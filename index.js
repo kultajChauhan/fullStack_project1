@@ -3,6 +3,9 @@ import dotenv from "dotenv/config";
 import cors from "cors";
 import db from './utils/db.js'
 
+//import all routes
+import userRouter from "./routes/User.route.js";
+
 // dotenv.config()
 
 const app = express();
@@ -31,6 +34,9 @@ app.get("/kultaj", (req, res) => {
 
 //connect db
 db();
+
+//user route
+app.use('/api/v1/users',userRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
