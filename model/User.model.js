@@ -21,7 +21,7 @@ let userSchema = new mongoose.Schema(
       type: String,
     },
     resetPasswordExpires: {
-      type: Date(),
+      type: Date,
     },
   },
   { timestamps: true }

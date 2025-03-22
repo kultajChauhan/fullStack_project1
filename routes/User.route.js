@@ -1,8 +1,9 @@
 import express from 'express'
-import { register } from '../controller/User.controller.js';
+import { registerUser,verifyUser } from '../controller/User.controller.js';
 
 let router=express.Router();
 
-router.get('/register',register)
+router.post('/register',registerUser)
+router.get('/verify',verifyUser)
 
 export default router;
