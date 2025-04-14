@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv/config";
 import cors from "cors";
 import db from './utils/db.js'
+import cookieParser from "cookie-parser";
 
 //import all routes
 import userRouter from "./routes/User.route.js";
@@ -21,10 +22,12 @@ app.use(
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(cookieParser())
 
 const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
+  console.log('cookie',res.cookie)
   res.send("Hello World!");
 });
 
